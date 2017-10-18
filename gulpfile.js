@@ -1,6 +1,8 @@
 var gulp = require('gulp');
     uglify = require('gulp-uglify'),
     rename = require('gulp-rename');
+    browserSync = require('browser-sync');
+    // sass        = require('gulp-sass');
 
 
 gulp.task('scripts' , function() {
@@ -10,8 +12,19 @@ gulp.task('scripts' , function() {
       .pipe(gulp.dest('./build/js'))
 });
 
-gulp.task('say_hello', function(){
-    console.log('Hello!');
-});
+gulp.task('watch', function() {
+    gulp.watch('js/*.js', ['scripts']);
+ }); 
 
-gulp.task('default', ['say_hello', 'scripts']);
+gulp.task('browser-sync', function() {
+    browserSync.init({
+        server: {
+            baseDir: "./"
+        }
+    });
+    
+    gulp.watch(['*.html', 'build/css/*.css', 'build/js/*.js']).on('change', browserSync.reload);
+        
+    });
+
+    gulp.task('default', ['watch', 'browser-sync']);
