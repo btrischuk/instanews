@@ -34,4 +34,7 @@ gulp.task('browser-sync', function() {
     gulp.watch(['*.html', 'build/css/*.css', 'build/js/*.js']).on('change', browserSync.reload);
         
     });
+
+    gulp.task('default',['watch', 'browser-sync']);
+    
     // https://www.npmjs.com/package/gulp-eslint#usage
