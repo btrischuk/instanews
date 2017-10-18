@@ -1,0 +1,11 @@
+{
+  "name": "instanews",
+  "version": "1.0.0",
+  "description": "Using the NYT api to create a wwebsite",
+  "main": "scripts.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Breckon Trischuk",
+  "license": "ISC"
+}
