@@ -1,0 +1,18 @@
+body {
+font-family: 'Open Sans', sans-serif;
+background: black;
+color: #ffffff;
+}
+
+header, footer {
+  display: flex;
+  justify-content: center;
+}
+
+@media all and (min-width:600px) {
+
+}
+
+@media all and (min-width:100px) {
+
+}

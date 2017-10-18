@@ -12,8 +12,9 @@ $.ajax({
 }).done(function (data) {
   console.log(data);
 
-  $.each(data.results, function (i, val) {
+  $.each(data.results, function ([i, val]) {
     console.log(val.title);
+
   });
 
 }).fail(function (err) {
