@@ -2,9 +2,24 @@ var gulp = require('gulp');
     uglify = require('gulp-uglify'),
     rename = require('gulp-rename'),
     browserSync = require('browser-sync'),
-    eslint = require('gulp-eslint');
-    // sass        = require('gulp-sass');
-
+    eslint = require('gulp-eslint'),
+    sass = require('gulp-sass'),
+    autoprefixer = require('gulp-autoprefixer'),
+    cssnano = require('gulp-cssnano');
+    prettyError = require('gulp-prettyerror');
+    
+    gulp.task('sass', function() {
+        gulp.src('./sass/style.scss')
+           .pipe(prettyError()) //error handling
+           .pipe(sass())
+           .pipe(autoprefixer({
+              browsers: ['last 2 versions']
+           }))
+           .pipe(gulp.dest('./build/css'))
+           .pipe(cssnano())
+           .pipe(rename('style.min.css'))
+           .pipe(gulp.dest('./build/css'));
+    });
 
 gulp.task('scripts', ['lint'] , function() {
   gulp.src('./js/*.js')
@@ -21,6 +36,7 @@ gulp.task('lint', function() {
 });
 
 gulp.task('watch', function() {
+    gulp.watch('sass/*scss', ['sass']);
     gulp.watch('js/*.js', ['scripts']);
 }); 
 
@@ -36,5 +52,5 @@ gulp.task('browser-sync', function() {
     });
 
     gulp.task('default',['watch', 'browser-sync']);
-    
+
     // https://www.npmjs.com/package/gulp-eslint#usage

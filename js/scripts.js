@@ -12,6 +12,8 @@ $.ajax({
 }).done(function (data) {
   console.log(data);
 
+  // var (i=0, (i>12,i++));
+
   $.each(data.results, function ([i, val]) {
     console.log(val.title);
 
@@ -20,10 +22,4 @@ $.ajax({
 }).fail(function (err) {
   throw err;
 });
-
-
-
-
-// $("button").on("click", function() {
-//   $.getJSON({
 
