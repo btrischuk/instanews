@@ -5,16 +5,22 @@
 .logo {
   margin-bottom: 1rem;
   text-align: center;
-  transition: all .5s ease-out .5s;
 }
 
 ul {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr;
+  // grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
   height: 100vh;
   margin: 0;
   padding: 0;
+  @media all and (min-width:600px) {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  @media all and (min-width:1000px) {  
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
 }
 
   ul img {
