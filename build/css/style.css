@@ -2,21 +2,47 @@ body {
   font-family: 'Open Sans', sans-serif;
   background: black;
   color: #ffffff;
-  width: 100vw;
+  width: 100%;
   -webkit-transition: all .5s ease-out .5s;
   transition: all .5s ease-out .5s; }
 
-header {
+.header-content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex; }
+
+.banner {
+  display: inline-block;
+  width: 100%;
+  padding: 2em; }
+  @media all and (min-width: 600px) {
+    .banner {
+      display: inline; } }
+
+@media all and (min-width: 600px) {
+  .header-info {
+    width: 70%; } }
+
+@media all and (min-width: 600px) {
+  .search-form {
+    width: 25%; } }
+
+.logo {
+  margin-bottom: 1rem;
+  text-align: center; }
+
+.screen-reader {
+  width: 1px;
+  height: 1px;
+  overflow: hidden; }
+
+.search-form {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center; }
-
-.logo {
-  margin-bottom: 1rem;
-  text-align: center; }
 
 ul {
   display: grid;
@@ -63,7 +89,6 @@ li {
   .news-container p {
     color: white;
     text-align: center;
-    padding: 20px;
     width: 100%;
     background-color: rgba(0, 0, 0, 0.6);
     position: absolute;

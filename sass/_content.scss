@@ -1,12 +1,4 @@
 
-// .stories {
-//   width: 50vw;
-// }
-.logo {
-  margin-bottom: 1rem;
-  text-align: center;
-}
-
 ul {
   display: grid;
   grid-template-columns: 1fr;
@@ -53,7 +45,7 @@ ul {
     p {
       color: white;
       text-align: center;
-      padding: 20px;
+      // padding: 20px;
       width: 100%;
       background-color: rgba(black, 0.6);
       position: absolute;

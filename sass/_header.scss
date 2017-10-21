@@ -1,4 +1,41 @@
-header{
+.header-content{
+  display: flex;
+  // justify-content: center;
+}
+
+.banner {
+  display: inline-block;
+  width: 100%;
+  padding: 2em;
+  @media all and (min-width:600px) {
+    display: inline;
+  }    
+}
+
+.header-info {
+  @media all and (min-width:600px) {
+    width: 70%;
+  }    
+}
+
+.search-form {
+  @media all and (min-width:600px) {
+    width: 25%;
+  }    
+}
+
+.logo {
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.screen-reader {
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.search-form {
   display: flex;
   justify-content: center;
 }
