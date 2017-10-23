@@ -1,22 +1,24 @@
-
 $(document).ready(function() {
 
-  $('#selected-articles').on('change', function() {
-
-    var selectedArticles = $(this).val();
+  var lookUp = function(){
+    $('header').addClass('new-layout');
+    $('.logo img').addClass('resize-logo');
+    // $('#stories').addClass('new-grid');
+    var selectedArticles = $('select').val();
 
 
     $('#stories').empty();
 
-    $('#loader').show()  
+    $('#loader').show();  
 
     var url = 'https://api.nytimes.com/svc/topstories/v2/' + selectedArticles + '.json'; 
     url += '?' + $.param({
       'api-key': "dcecf5aafbd2481c8637e3375c7ffa3a"
     });
 
-    if (selectedArticles == ''){
-      $('#loader').hide()  
+    if (selectedArticles == 'section'){
+      $('#loader').hide();  
+      return true;
     }
 
     $.ajax({
@@ -29,11 +31,12 @@ $(document).ready(function() {
       $.each(data.results.filter(function(item) { return item.multimedia.length !== 0 }).slice(0, 12), function(index, value) {
         console.log('data.results:', value)
 
-        $('#loader').hide()  
+        $('#loader').hide(); 
       
         var outPutAbstract = value.abstract;
         var outPutUrl = value.url;
-        var outPutImage = value.multimedia[4].url;
+        var imageQuality = value.multimedia.length -1;
+        var outPutImage = value.multimedia[imageQuality].url;
         var stories = $('#stories').append('<a href="' + outPutUrl + '"><div class="news-container" style="background-image:url('+outPutImage+')"><p> ' + outPutAbstract + '</p></div></a>');
           // console.log(stories)
 
@@ -43,5 +46,15 @@ $(document).ready(function() {
       throw error;
       // $('.stories').append('reload browser');
     });
+  };
+
+  lookUp();
+
+  $('#selected-articles').on('change', function() {
+    lookUp();
+  });
+
+  $(function() {
+    $('select').selectric();
   });
 });
