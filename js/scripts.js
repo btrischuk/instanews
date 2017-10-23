@@ -6,9 +6,11 @@ $(document).ready(function() {
     // $('#stories').addClass('new-grid');
     var selectedArticles = $('select').val();
 
+//empty articles before loading more
 
     $('#stories').empty();
 
+    //show loader during loading page
     $('#loader').show();  
 
     var url = 'https://api.nytimes.com/svc/topstories/v2/' + selectedArticles + '.json'; 
@@ -16,6 +18,7 @@ $(document).ready(function() {
       'api-key': "dcecf5aafbd2481c8637e3375c7ffa3a"
     });
 
+    //hide loader upon loading articles
     if (selectedArticles == 'section'){
       $('#loader').hide();  
       return true;
@@ -27,6 +30,8 @@ $(document).ready(function() {
     })
     
     .done(function (data) {
+
+            // filter data for articles with images and only allow 12 srticles 
 
       $.each(data.results.filter(function(item) { return item.multimedia.length !== 0 }).slice(0, 12), function(index, value) {
         console.log('data.results:', value)
@@ -48,6 +53,7 @@ $(document).ready(function() {
     });
   };
 
+  //reload articles upon return to website
   lookUp();
 
   $('#selected-articles').on('change', function() {
