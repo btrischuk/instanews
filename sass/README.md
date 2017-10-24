@@ -10,6 +10,7 @@
 - JavaScrpt  
 - Flickity 
 - JQuery
+- Gulp
 
 Instanews is a webpage created for a school project at RED Academy.  It uses API's to generate data from the New York Times and was built as per the perameters specified for the project.
 

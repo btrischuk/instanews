@@ -4,13 +4,9 @@
 
 .container {
   display: flex;
-  // justify-content: flex-start;  
   justify-content: center;
   flex-direction: column;
-  // align-content: center;
-  // align-items: center;
   min-height: 100vh;
-  
 }
 
 #stories {
@@ -19,39 +15,6 @@
   flex-wrap: wrap;
   margin: 0;
   padding: 0;
-  // @include tablet {
-  // }
-  // @include desktop {
-  // }
-}
-
-.search-form-inner {
-  text-align: center;
-}
-
-
-
-.selectric-wrapper {
-  .selectric {
-    border-radius: 7px;
-    background: #F8F8F8;
-    position: relative;
-    overflow: hidden;
-    height: 30px;
-  }
-  .selectric .label {
-    // padding: 0 2px 0 2px;
-    font-size: 18px;
-    font-weight: 900;
-    line-height: 30px;
-  }
-  .selectric .button {
-    right: 5px;
-    width: 12px;
-    height: 25px;
-    color: black;
-  }
-
 }
 
 #stories img {
@@ -65,12 +28,10 @@
 #stories a {
   width: 100vw;
   position: relative;
-    
   @include tablet {
     width: 50%;   
     flex: 0 1 50%;
   }
-
   @include desktop {
     width: 25%;
     flex: 0 1 25%;      
@@ -84,15 +45,14 @@
   text-align: center;
   margin: 0 auto;
   display: none;
-  width: 20vw;
+  width: 5vw;
 }
 
 .news-container {
   display: flex;    
   position: relative;
-  background-position: contain;
   background-size: cover;
-  background-position: 50%;
+  background-position: center 25%;
   height: 400px;    
   background-repeat: no-repeat;
   p {
