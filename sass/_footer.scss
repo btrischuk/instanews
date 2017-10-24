@@ -6,4 +6,7 @@ footer{
   @include desktop {
     justify-content: flex-start;
   }
+  p {
+    color: #c2c2c2;
+  }
 }
