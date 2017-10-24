@@ -69,7 +69,6 @@
 .search-form-inner p {
   display: flex;
   padding-bottom: 1em;
-  justify-content: center;
 }
 
 .selectric-focus .selectric {
