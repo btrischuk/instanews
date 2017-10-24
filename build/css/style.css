@@ -123,30 +123,31 @@ body {
     height: 50%; }
   @media (min-width: 600px) {
     .new-layout .resize-logo {
-      width: 50%;
+      width: 60%;
       -webkit-box-pack: start;
           -ms-flex-pack: start;
               justify-content: flex-start; } }
+
+@media (min-width: 600px) and (min-width: 1000px) {
+  .new-layout .resize-logo {
+    width: 100%; } }
 
 * {
   -webkit-box-sizing: border-box;
           box-sizing: border-box; }
 
 .container {
-  height: 100vh;
-  height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  -ms-flex-line-pack: center;
-      align-content: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center; }
+  min-height: 100vh; }
 
 #stories {
   display: none;
@@ -160,6 +161,24 @@ body {
 
 .search-form-inner {
   text-align: center; }
+
+.selectric-wrapper .selectric {
+  border-radius: 7px;
+  background: #F8F8F8;
+  position: relative;
+  overflow: hidden;
+  height: 30px; }
+
+.selectric-wrapper .selectric .label {
+  font-size: 18px;
+  font-weight: 900;
+  line-height: 30px; }
+
+.selectric-wrapper .selectric .button {
+  right: 5px;
+  width: 12px;
+  height: 25px;
+  color: black; }
 
 #stories img {
   width: 100%; }
@@ -202,13 +221,13 @@ body {
   display: -ms-flexbox;
   display: flex;
   position: relative;
-  background-position: center;
+  background-position: contain;
   background-size: cover;
   background-position: 50%;
   height: 400px;
   background-repeat: no-repeat; }
   .news-container p {
-    height: 20%;
+    height: auto;
     position: absolute;
     color: white;
     text-align: center;
@@ -216,7 +235,7 @@ body {
     background-color: rgba(0, 0, 0, 0.6);
     bottom: 0;
     text-align: left;
-    padding: 0 .5em; }
+    padding: 1em .5em; }
 
 .new-grid {
   display: visible; }
@@ -236,3 +255,5 @@ footer {
       -webkit-box-pack: start;
           -ms-flex-pack: start;
               justify-content: flex-start; } }
+  footer p {
+    color: #c2c2c2; }
