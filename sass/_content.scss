@@ -26,8 +26,8 @@
 }
 
 #stories a {
-  width: 100vw;
   position: relative;
+  width: 100vw;  
   @include tablet {
     width: 50%;   
     flex: 0 1 50%;
@@ -51,23 +51,20 @@
 .news-container {
   display: flex;    
   position: relative;
+
   background-size: cover;
+  background-repeat: no-repeat;  
   background-position: center 25%;
   height: 400px;    
-  background-repeat: no-repeat;
   p {
     height: auto;
     position: absolute;
     color: white;
-    text-align: center;
-    width: 100%;
+    text-align: left;    
+    background-repeat: no-repeat;    
     background-color: rgba(black, 0.6);
+    width: 100%;    
     bottom: 0;
-    text-align: left;
     padding: 1em .5em;      
   }
-}
-  
-.new-grid {
-  display: visible;
 }
