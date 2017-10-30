@@ -13,7 +13,7 @@ $(document).ready(function() {
     //show loader during loading page
     $('#loader').show();  
 
-    var url = 'https://api.nytimes.com/svc/topstories/v2/' + selectedArticles + '.json'; 
+    let url = 'https://api.nytimes.com/svc/topstories/v2/' + selectedArticles + '.json'; 
     url += '?' + $.param({
       'api-key': 'dcecf5aafbd2481c8637e3375c7ffa3a'
     });
