@@ -1,6 +1,6 @@
 $(document).ready(function() {
   
-  var lookUp = function(){
+  let lookUp = () => {
 
       $('header').addClass('new-layout');
       $('.logo img').addClass('resize-logo');

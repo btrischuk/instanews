@@ -1,12 +1,22 @@
-var gulp = require('gulp');
+var gulp = require('gulp'),
     uglify = require('gulp-uglify'),
     rename = require('gulp-rename'),
     browserSync = require('browser-sync'),
     eslint = require('gulp-eslint'),
     sass = require('gulp-sass'),
     autoprefixer = require('gulp-autoprefixer'),
-    cssnano = require('gulp-cssnano');
-    prettyError = require('gulp-prettyerror');
+    cssnano = require('gulp-cssnano'),
+    prettyError = require('gulp-prettyerror'),
+    babel = require('gulp-babel');
+
+    const input = './js/*.js';
+    const output = './js/transpiled';
+
+    gulp.task('babel', () => {
+        return gulp.src(input)
+        .pipe(babel())
+        .pipe(gulp.dest(output));
+    });    
     
     gulp.task('sass', function() {
         gulp.src('./sass/style.scss')
@@ -21,8 +31,8 @@ var gulp = require('gulp');
            .pipe(gulp.dest('./build/css'));
     });
 
-gulp.task('scripts', ['lint'] , function() {
-  gulp.src('./js/*.js')
+gulp.task('scripts', ['lint', 'babel'] , function() {
+  gulp.src('./js/transpiled/*.js')
       .pipe(uglify())
       .pipe(rename({ extname: '.min.js' }))
       .pipe(gulp.dest('./build/js'))
