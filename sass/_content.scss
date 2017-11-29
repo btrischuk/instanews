@@ -58,10 +58,10 @@
   p {
     height: auto;
     position: absolute;
-    color: white;
+    color: $color__white;
     text-align: left;    
     background-repeat: no-repeat;    
-    background-color: rgba(black, 0.6);
+    background-color: rgba($color__black, 0.6);
     width: 100%;    
     bottom: 0;
     padding: 1em .5em;      
