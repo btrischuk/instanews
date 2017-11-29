@@ -20,7 +20,7 @@ $(document).ready(function () {
       'api-key': 'dcecf5aafbd2481c8637e3375c7ffa3a'
     });
 
-    //hide loader upon loading articles
+    //hide loader upon loading articles 
     if (selectedArticles === 'section') {
       $('#loader').hide();
       return true;
