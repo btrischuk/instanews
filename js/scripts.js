@@ -1,4 +1,5 @@
 $(document).ready(function() {
+  $('select').selectric();
   
   let lookUp = () => {
 
@@ -14,9 +15,7 @@ $(document).ready(function() {
     $('#loader').show();  
 
     var url = 'https://api.nytimes.com/svc/topstories/v2/' + selectedArticles + '.json'; 
-    url += '?' + $.param({
-      'api-key': 'dcecf5aafbd2481c8637e3375c7ffa3a'
-    });
+    url += '?' + $.param({'api-key': 'dcecf5aafbd2481c8637e3375c7ffa3a'});
 
     //hide loader upon loading articles
     if (selectedArticles === 'section'){
@@ -55,9 +54,5 @@ $(document).ready(function() {
 
   $('#selected-articles').on('change', function() {
     lookUp();
-  });
-
-  $(function() {
-    $('select').selectric();
   });
 });

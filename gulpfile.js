@@ -55,12 +55,10 @@ gulp.task('browser-sync', function() {
         server: {
             baseDir: "./"
         }
-});
-    
-    gulp.watch(['*.html', 'build/css/*.css', 'build/js/*.js']).on('change', browserSync.reload);
-        
     });
+    gulp.watch(['*.html', 'build/css/*.css', 'build/js/*.js']).on('change', browserSync.reload);
+});
 
-    gulp.task('default',['watch', 'browser-sync']);
+gulp.task('default',['watch', 'browser-sync']);
 
     // https://www.npmjs.com/package/gulp-eslint#usage

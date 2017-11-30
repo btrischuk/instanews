@@ -1,6 +1,7 @@
 'use strict';
 
 $(document).ready(function () {
+  $('select').selectric();  
 
   var lookUp = function lookUp() {
 
@@ -19,6 +20,10 @@ $(document).ready(function () {
     url += '?' + $.param({
       'api-key': 'dcecf5aafbd2481c8637e3375c7ffa3a'
     });
+
+    .always($('#loader').hide();
+  );
+    
 
     //hide loader upon loading articles 
     if (selectedArticles === 'section') {
@@ -55,9 +60,5 @@ $(document).ready(function () {
 
   $('#selected-articles').on('change', function () {
     lookUp();
-  });
-
-  $(function () {
-    $('select').selectric();
   });
 });
