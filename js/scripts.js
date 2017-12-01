@@ -1,58 +1,48 @@
-$(document).ready(function() {
+$(document).ready(() => {
   $('select').selectric();
-  
-  let lookUp = () => {
 
-      $('header').addClass('new-layout');
-      $('.logo img').addClass('resize-logo');
-      var selectedArticles = $('select').val();
-  
+  const lookUp = function lookUp() {
+
+    $('header').addClass('new-layout');
+    $('.logo img').addClass('resize-logo');
+    const selectedArticles = $('select').val();
+
     //empty articles before loading more
 
     $('#stories').empty();
 
     //show loader during loading page
-    $('#loader').show();  
+    $('#loader').show();
 
-    var url = 'https://api.nytimes.com/svc/topstories/v2/' + selectedArticles + '.json'; 
-    url += '?' + $.param({'api-key': 'dcecf5aafbd2481c8637e3375c7ffa3a'});
+    let url = `https://api.nytimes.com/svc/topstories/v2/${selectedArticles}.json`;
+    url += `?${$.param({ 'api-key': 'dcecf5aafbd2481c8637e3375c7ffa3a' })}`;
 
     //hide loader upon loading articles
-    if (selectedArticles === 'section'){
-      $('#loader').hide();  
-      return true;
-    }
 
     $.ajax({
-      url:url,
-      method: 'GET',
-    })
-    
-    .done(function (data) {
+      url,
+      method: 'GET'
+    }).done(data => {
 
-      // filter data for articles with images and only allow 12 srticles 
+      data.results.filter(item => item.multimedia.length !== 0).slice(0, 12).forEach(value => {
 
-      $.each(data.results.filter(function(item) { return item.multimedia.length !== 0 }).slice(0, 12), function(index, value) {
+        const outPutAbstract = value.abstract;
+        const outPutUrl = value.url;
+        const imageQuality = value.multimedia.length - 1;
+        const outPutImage = value.multimedia[imageQuality].url;
 
-        $('#loader').hide(); 
-      
-        var outPutAbstract = value.abstract;
-        var outPutUrl = value.url;
-        var imageQuality = value.multimedia.length -1;
-        var outPutImage = value.multimedia[imageQuality].url;
-        var stories = $('#stories').append('<a href="' + outPutUrl + '"><div class="news-container" style="background-image:url('+outPutImage+')"><p> ' + outPutAbstract + '</p></div></a>');
+        $('#stories').append(`<a href="${outPutUrl}"><div class="news-container" style="background-image:url(${outPutImage})"><p> ${outPutAbstract}</p></div></a>`);
       });
-    })
-
-    .fail(function(error){
-      $('.stories').append('Reload Browser');      
+    }).fail(error => {
+      $('.stories').append('Reload Browser');
       throw error;
+    }).always(() => {
+      $('#loader').hide();
     });
   };
-
   //reload articles upon return to website
 
-  $('#selected-articles').on('change', function() {
+  $('#selected-articles').on('change', () => {
     lookUp();
   });
 });

@@ -46,8 +46,8 @@ table {
   border-spacing: 0; }
 
 body {
-  font-family: 'Open Sans', sans-serif;
-  background: black;
+  font-family: "Open Sans", sans-serif;
+  background: #222222;
   color: #ffffff;
   width: 100%; }
 
@@ -219,13 +219,17 @@ header * {
   .news-container p {
     height: auto;
     position: absolute;
-    color: white;
+    color: #ffffff;
     text-align: left;
     background-repeat: no-repeat;
-    background-color: rgba(0, 0, 0, 0.6);
+    background-color: rgba(34, 34, 34, 0.6);
     width: 100%;
     bottom: 0;
-    padding: 1em .5em; }
+    padding: 1em .5em;
+    overflow: hidden; }
+    .news-container p:hover .jump {
+      -webkit-transform: translateY(0);
+              transform: translateY(0); }
 
 footer {
   display: -webkit-box;

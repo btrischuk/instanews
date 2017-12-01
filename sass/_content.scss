@@ -65,5 +65,29 @@
     width: 100%;    
     bottom: 0;
     padding: 1em .5em;      
+    
+    overflow: hidden;
+    &:hover {
+      .jump {
+        transform: translateY(0);
+      }
+    }
   }
 }
+
+
+
+// .hiddena {
+//   overflow: hidden;
+//   &:hover {
+//     .jump {
+//       transform: translateY(0);
+//     }
+//   }
+//   .jump {
+//     transition: .5s;
+//     transform: translateY(200px);
+//     background: rgba(0, 0, 0, 0.5);
+//   }
+// }
+// }

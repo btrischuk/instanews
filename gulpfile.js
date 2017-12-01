@@ -31,14 +31,14 @@ var gulp = require('gulp'),
            .pipe(gulp.dest('./build/css'));
     });
 
-gulp.task('scripts', ['lint', 'babel'] , function() {
+gulp.task('scripts', ['eslint', 'babel'] , function() {
   gulp.src('./js/transpiled/*.js')
       .pipe(uglify())
       .pipe(rename({ extname: '.min.js' }))
       .pipe(gulp.dest('./build/js'))
 });
 
-gulp.task('lint', function() {
+gulp.task('eslint', function() {
     return gulp.src(['./js/*.js'])
     .pipe(eslint())
     .pipe(eslint.format())
