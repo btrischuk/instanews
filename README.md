@@ -15,7 +15,14 @@
 Instanews is a webpage created for a school project at RED Academy.  It uses API's to generate data from the New York Times and was built as per the perameters specified for the project.
 
 ## Install NPM
-Npm must be installeds in order to run locally and using gulp commands.
+Npm must be installed in order to run locally and using gulp commands.
+
+```npm install```
+
+run gulp
+
+```gulp scripts```
+```gulp```
 
 ### Terminal Commands 
 - npm -v (check if you have npm installed, if not follow the next steps)

@@ -1,9 +1,12 @@
 $(document).ready(() => {
   $('select').selectric();
 
+  /**
+   * lookUp function which runs the ajax request
+   */
   const lookUp = function lookUp() {
 
-    $('header').addClass('new-layout');
+    $('header').addClass('new-layout'); 
     $('.logo img').addClass('resize-logo');
     const selectedArticles = $('select').val();
 
@@ -19,6 +22,10 @@ $(document).ready(() => {
 
     //hide loader upon loading articles
 
+
+    /**
+     * Get request to load and append articles from NYT
+     */
     $.ajax({
       url,
       method: 'GET'
@@ -42,6 +49,10 @@ $(document).ready(() => {
   };
   //reload articles upon return to website
 
+  /**
+   * Function call to load ajax articles
+   * lookUp()
+   */
   $('#selected-articles').on('change', () => {
     lookUp();
   });
